@@ -309,11 +309,13 @@ public class CustomerBean implements Serializable{
 		return result;
 	}
 	
-	public String update() {
+	public String update() throws Exception {
+		
 		String nav = "";
 		System.out.println("In the update method");
 		
 		CustomerBean customer = UpdateProfileManager.update(this);
+		System.out.println("The customer object is "+customer);
 		if(customer != null) {
 			System.out.println("There is no update");
 			nav = "availableRoom";
@@ -322,7 +324,8 @@ public class CustomerBean implements Serializable{
 			 * There is an update to the CustomerBean, update the database
 			 * For now set to null
 			 */
-			nav = "avaiableRoom";
+			System.out.println("Update to the database");
+			nav = "availableRoom";
 		}
 		
 		return nav;
