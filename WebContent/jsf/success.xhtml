@@ -2,18 +2,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<title>JSF Authentication</title>
+	<title>Customer Profile</title>
 	<style type="text/css">
-		.successText {
-			color: green;
-			margin: 12px;
-			font-weight: bold;
-		}
-	</style>
+.successText {
+	color: green;
+	margin: 12px;
+	font-weight: bold;
+}
+</style>
 </h:head>
 <h:body>
 	<div id="result">
-		Welcome, <span id="userName"><h:outputLabel class="successText" value="#{loginBean.userName}" /></span>
+		Welcome, <span id="userName"><h:outputLabel class="successText"
+				value="#{loginBean.userName}" /></span>
 	</div>
+	<h:form>
+	First Name:<h:inputText value="#{customerBean.firstName}" required="true"
+	requiredMessage="You must enter a first name" />
+	Last Name:<h:inputText value="#{customerBean.lastName}" required="true"
+	requiredMessage="You must enter a last name" />
+	Username:<h:inputText value="#{customerBean.userName}" required="true"
+	requiredMessage="You must enter a username" />
+	Password:<h:inputText value="#{customerBean.password}" required="true"
+	requiredMessage="You must enter the password" />
+	Birthday:<h:inputText value="#{customerBean.birthday}" required="true"
+	requiredMessage="You must enter your birthday" />
+	Payment info:
+	Type:<h:inputText value="#{customerBean.cardType}" required="true"
+	requiredMessage="You must enter the card type" />
+	Card Number:<h:inputText value="#{customerBean.cardNumber}" required="true"
+	requiredMessage="You must enter the card number" />
+	Expiration date:<h:inputText value="#{customerBean.expDate}" required="true"
+	requiredMessage="You must enter the expiration date" />
+	CVV:<h:inputText value="#{customerBean.cvv}" required="true"
+	requiredMessage="You must enter the CVV" />
+		<h:commandButton value="Submit" action="#{customerBean.update}"></h:commandButton>
+	</h:form>
 </h:body>
 </html>

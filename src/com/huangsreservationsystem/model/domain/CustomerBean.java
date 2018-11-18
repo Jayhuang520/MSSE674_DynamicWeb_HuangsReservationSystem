@@ -306,6 +306,27 @@ public class CustomerBean implements Serializable{
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
+	
+	public String update() {
+		String nav = "";
+		System.out.println("In the update method");
+		if (firstName.equals("jay") && lastName.equals("huang")
+				&& userName.equals("jayhuang") && password.equals("123456")
+				&& cardType.equals("Discover")
+				&& cardNumber.equals("1111-2222-3333-4444")
+				&& expDate.equals("08/28") && cvv.equals("123")) {
+			
+			System.out.println("There is no update");
+			nav = "availableRoom";
+		} else {
+			/*
+			 * There is an update to the CustomerBean, update the database
+			 * For now set to null
+			 */
+			nav = "avaiableRoom";
+		}
 
+		return nav;
+	}
 
 }
