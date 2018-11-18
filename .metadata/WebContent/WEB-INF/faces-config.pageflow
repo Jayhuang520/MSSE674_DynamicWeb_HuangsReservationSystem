@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15425196376760" configfile="/HuangsReservationSystem/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="370" id="pf15425213489691" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15425213489693 pf15425250353800" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="failure.xhtml" x="338" y="562" id="pf15425213489695" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15425213489693" path="/failure.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="success.xhtml" id="pf15425250353801" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15425250353800" path="/success.xhtml"/>
+  <links id="pf15425213489693" target="pf15425213489695" source="pf15425213489691" outcome="failure" fromaction="#{loginBean.validateUserLogin}"/>
+  <links id="pf15425250353800" target="pf15425250353801" source="pf15425213489691" outcome="success" fromaction="#{loginBean.validateUserLogin}"/>
+</pageflow:Pageflow>
