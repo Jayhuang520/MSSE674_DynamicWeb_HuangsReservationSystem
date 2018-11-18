@@ -30,8 +30,8 @@ public class LoginBean {
 		String navResult = "";
 		System.out.println("Entered Username is= " + userName + ", password is= " + password);
 		if (userName.equalsIgnoreCase("jayhuang") && password.equals("123456")) {
-			System.out.println("Match password,direct to success");
-			navResult = "success";
+			System.out.println("Match password,direct to home");
+			navResult = "home";
 		} else {
 			System.out.println("Not match password, direct to failed");
 			navResult = "failure";
