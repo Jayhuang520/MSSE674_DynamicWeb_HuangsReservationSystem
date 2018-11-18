@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.huangsreservationsystem.business.UpdateProfileManager;
+
 
 @ManagedBean 
 @SessionScoped
@@ -310,22 +312,19 @@ public class CustomerBean implements Serializable{
 	public String update() {
 		String nav = "";
 		System.out.println("In the update method");
-		if (firstName.equals("jay") && lastName.equals("huang")
-				&& userName.equals("jayhuang") && password.equals("123456")
-				&& cardType.equals("Discover")
-				&& cardNumber.equals("1111-2222-3333-4444")
-				&& expDate.equals("08/28") && cvv.equals("123")) {
-			
+		
+		CustomerBean customer = UpdateProfileManager.update(this);
+		if(customer != null) {
 			System.out.println("There is no update");
 			nav = "availableRoom";
-		} else {
+		}else {
 			/*
 			 * There is an update to the CustomerBean, update the database
 			 * For now set to null
 			 */
 			nav = "avaiableRoom";
 		}
-
+		
 		return nav;
 	}
 

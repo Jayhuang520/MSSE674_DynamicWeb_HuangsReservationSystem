@@ -21,30 +21,28 @@
 	<h:form>
 	<h:messages style="color:red;margin:8px;" />
 	First Name:<h:inputText value="#{customerBean.firstName}" required="true"
-	requiredMessage="You must enter a first name" />
+	requiredMessage="You must enter a first name" /> <br/>
 	Last Name:<h:inputText value="#{customerBean.lastName}" required="true"
-	requiredMessage="You must enter a last name" />
+	requiredMessage="You must enter a last name" /> <br/>
 	Username:<h:inputText value="#{customerBean.userName}" required="true"
-	requiredMessage="You must enter a username" 
-	validatorMessage="username format must be valid">
-	<f:validateRegex patter=" ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$"/>
-	</h:inputText>
+	requiredMessage="You must enter a username">
+	</h:inputText> <br/>
 	Password:<h:inputText value="#{customerBean.password}" required="true"
 	requiredMessage="You must enter the password" 
 	validatorMessage="password must be at least five charaters">
 	<f:validateLength minimum="5" maximum="10" />
-	</h:inputText>
+	</h:inputText> <br/>
 	Birthday:<h:inputText value="#{customerBean.birthday}" required="true"
-	requiredMessage="You must enter your birthday" />
-	Payment info:
+	requiredMessage="You must enter your birthday" /><br/>
+	Payment info:<br/>
 	Type:<h:inputText value="#{customerBean.cardType}" required="true"
-	requiredMessage="You must enter the card type" />
+	requiredMessage="You must enter the card type" /><br/>
 	Card Number:<h:inputText value="#{customerBean.cardNumber}" required="true"
-	requiredMessage="You must enter the card number" />
+	requiredMessage="You must enter the card number" /><br/>
 	Expiration date:<h:inputText value="#{customerBean.expDate}" required="true"
-	requiredMessage="You must enter the expiration date" />
+	requiredMessage="You must enter the expiration date" /><br/>
 	CVV:<h:inputText value="#{customerBean.cvv}" required="true"
-	requiredMessage="You must enter the CVV" />
+	requiredMessage="You must enter the CVV" /><br/>
 		<h:commandButton value="Submit" action="#{customerBean.update}"></h:commandButton>
 	</h:form>
 </h:body>
