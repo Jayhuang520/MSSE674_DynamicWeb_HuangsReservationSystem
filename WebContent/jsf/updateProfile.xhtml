@@ -1,6 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Customer Profile</title>
 	<style type="text/css">
@@ -17,14 +19,21 @@
 				value="#{loginBean.userName}" /></span>
 	</div>
 	<h:form>
+	<h:messages style="color:red;margin:8px;" />
 	First Name:<h:inputText value="#{customerBean.firstName}" required="true"
 	requiredMessage="You must enter a first name" />
 	Last Name:<h:inputText value="#{customerBean.lastName}" required="true"
 	requiredMessage="You must enter a last name" />
 	Username:<h:inputText value="#{customerBean.userName}" required="true"
-	requiredMessage="You must enter a username" />
+	requiredMessage="You must enter a username" 
+	validatorMessage="username format must be valid">
+	<f:validateRegex patter=" ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$"/>
+	</h:inputText>
 	Password:<h:inputText value="#{customerBean.password}" required="true"
-	requiredMessage="You must enter the password" />
+	requiredMessage="You must enter the password" 
+	validatorMessage="password must be at least five charaters">
+	<f:validateLength minimum="5" maximum="10" />
+	</h:inputText>
 	Birthday:<h:inputText value="#{customerBean.birthday}" required="true"
 	requiredMessage="You must enter your birthday" />
 	Payment info:
