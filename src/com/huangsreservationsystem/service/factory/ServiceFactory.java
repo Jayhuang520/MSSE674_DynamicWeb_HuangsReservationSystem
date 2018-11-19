@@ -29,11 +29,11 @@ public class ServiceFactory {
 			Class<?> c = Class.forName(getImplName(name));
 			return (IService)c.newInstance();
 		} catch (ClassNotFoundException e) {
-			throw new ServiceLoadException(name + "not found");
+			throw new ServiceLoadException(name + "not found", e);
 		} catch (InstantiationException ie) {
-			throw new ServiceLoadException(name + "not instantiated");
+			throw new ServiceLoadException(name + "not instantiated", ie);
 		} catch (IllegalAccessException iae) {
-			throw new ServiceLoadException(name+"illegal access");
+			throw new ServiceLoadException(name+"illegal access", iae);
 		}
 	}
 	

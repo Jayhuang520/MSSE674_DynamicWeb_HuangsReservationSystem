@@ -1,10 +1,11 @@
 package com.huangsreservationsystem.service.Customer;
 
+import com.huangsreservationsystem.model.domain.CustomerBean;
 import com.huangsreservationsystem.service.IService;
 
 public interface ICustomerSvc extends IService{
 	
 	final String NAME = "ICustomerSvc";
 	
-	public void updateDatabase();
+	public boolean updateDatabaseService(CustomerBean customer);
 }
