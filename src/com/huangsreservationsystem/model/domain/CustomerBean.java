@@ -6,7 +6,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.huangsreservationsystem.business.UpdateProfileManager;
-import com.huangsreservationsystem.business.UpdateProfileManagerTest;
 
 
 @ManagedBean 
