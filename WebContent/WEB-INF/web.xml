@@ -19,7 +19,6 @@
 		<filter-name>GzipFilter</filter-name>
 		<filter-class>com.huangsreservationsystem.filter.GzipFilter</filter-class>
 	</filter>
-	
 	<filter-mapping>
 		<filter-name>Tracking Filter</filter-name>
 		<url-pattern>/*</url-pattern>
@@ -29,7 +28,6 @@
 		<filter-name>GzipFilter</filter-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</filter-mapping>
-	
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

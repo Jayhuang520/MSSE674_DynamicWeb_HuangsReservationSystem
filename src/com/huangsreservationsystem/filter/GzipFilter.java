@@ -34,13 +34,13 @@ public class GzipFilter implements Filter {
 		if(isGzipSupported((HttpServletRequest)req)) {
 			System.out.println("Gzip is supported");
 			
-			//out = getGzipWriter((HttpServletResponse) res);
+			out = getGzipWriter((HttpServletResponse) res);
 			((HttpServletResponse) res).setHeader("Content-Encoding", "gzip");
-			HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) res);
+			ResponseWrapper wrapper = new ResponseWrapper((HttpServletResponse) res);
 			chain.doFilter(req, wrapper);
 			
-			//out.print("<HTML><HEAD>Compressed verion of web</HEAD></HTML>");
-			//out.close();
+			out.print(wrapper.toString());
+			out.close();
 		} else {
 			chain.doFilter(req, res);
 		}
@@ -48,16 +48,20 @@ public class GzipFilter implements Filter {
 		System.out.println("Existing Gzip Filter");
 	}
 	
-	private PrintWriter getGzipWriter(HttpServletResponse res) throws IOException {
-		return(new PrintWriter(new GZIPOutputStream(res.getOutputStream())));
+	
+	public void destroy() {
+		config = null;
 	}
-
+	
 	public boolean isGzipSupported(HttpServletRequest request) {
 		String encodings = request.getHeader("Accept-Encoding");
 		return ((encodings != null) && (encodings.indexOf("gzip")!=-1));
-		//return true;
+		//return false;
 	}
 
+	private PrintWriter getGzipWriter(HttpServletResponse res) throws IOException {
+		return(new PrintWriter(new GZIPOutputStream(res.getOutputStream())));
+	}
 	//another example
 //	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 //			throws IOException, ServletException {
