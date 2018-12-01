@@ -40,16 +40,20 @@ public class TrackingFilter implements Filter{
 //			chain.doFilter(request, response);
 //		}
 		
-		if(uri.endsWith("index.xhtml")) {
+		//uri.endsWith("index.xhtml") && uri.startsWith("/HuangsReservationSystem")
+		
+		if(uri.equalsIgnoreCase("/HuangsReservationSystem/jsf/index.xhtml")) {
 			//pass the request
 			chain.doFilter(request, response);
 		}else {
 			//deny access
 			System.out.println("Deny access");
+			PrintWriter out = response.getWriter();
+			out.print("<HTML><HEAD>Access Deny</HEAD></HTML>");
 		}
 		
 		System.out.println("Exit the tracking filter.");
 	}
 	
-	
+	public void destroy() {}
 }
